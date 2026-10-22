@@ -44,8 +44,9 @@ Tiers maiores / mais modificadores
 - **Defesa no MVP:** Vida, Armadura, Resistências (fogo/gelo/raio/caos) e bloqueio (escudo). Sem acerto/evasão no MVP: todo golpe acerta. Evasão e escudo de energia ficam para depois.
 
 ### 3.3 Maestria
-- Cada **tipo de arma** tem sua **maestria**, ganha lutando com ele.
-- A maestria desbloqueia as opções de skill dos slots da arma e sobe o nível dessas skills.
+- Cada **tipo de arma** tem sua **maestria** (1 a 50), ganha lutando com ele; trocar de arma não perde a maestria da anterior.
+- Em cada slot da arma, as opções se desbloqueiam na maestria **1, 10 e 25**.
+- **Nível das skills** daquele tipo de arma = 1 + maestria ÷ 5 (até 11).
 
 ## 4. Tipos de arma e skills
 
@@ -66,16 +67,27 @@ Não existe classe. O **tipo de arma** equipado define as skills dos slots da ar
 
 > A combinação exata de mão secundária por arma de uma mão será fechada na spec; a regra fixa é: **Adaga secundária só com Adaga principal; duas mãos não usam secundária, exceto Arco + Aljava.**
 
+O **tipo de arma** define as skills; dentro de cada tipo existem várias **bases de item** (ex.: Espada Curta, Espada Longa) que dão as mesmas skills e diferem em dano base, velocidade, requisitos e implícito.
+
+**Ataque vs. magia:** skills de **ataque** (Espada, Machado, Adaga, Arco) usam o dano da arma — físico na base; elementos vêm de **afixos** do item. Skills de **magia** (Cajado elemental, Tomo, Grimório…) têm dano e tipo próprios; afixos aumentam o dano mas não mudam o tipo.
+
 ### 4.2 Slots de skill
-- **Arma:** 3 slots, cada um com **3 opções** desbloqueadas pela maestria.
-- **Elmo, peitoral, botas:** 1 slot cada, com 2–3 opções vindas da **base da armadura** e desbloqueadas pelo **nível** do personagem. Skills de armadura são **sempre suporte — buff, defesa ou mobilidade (botas) — nunca dano**.
+- **Arma:** 3 slots, cada um com **3 opções** desbloqueadas pela maestria:
+  - **Slot 1 — Principal:** custo baixo, sem recarga, dano do dia a dia.
+  - **Slot 2 — Tática:** recarga curta; controle, mobilidade ou área média.
+  - **Slot 3 — Assinatura:** recarga longa, efeito forte; define a build.
+  - Regra de design: as 3 opções de um slot diferem na forma de uso — em geral (a) alvo único, (b) área, (c) especialista (acúmulo de aflição ou utilidade).
+- **Elmo, peitoral, botas:** 1 slot cada. As opções vêm do **peso da armadura + slot** (todas as bases do mesmo peso e slot compartilham as opções) e são desbloqueadas pelo **nível** do personagem. Skills de armadura são **sempre suporte, nunca dano**:
+  - **Pesos:** Tecido (Inteligência), Couro (Destreza), Placas (Força).
+  - **Elmo:** recurso e utilidade (mana, recarga). **Peitoral:** defesa (escudo temporário, resistência, limiar). **Botas:** mobilidade (dash, salto, velocidade).
+- Sem árvore de modificadores por skill no MVP: a skill evolui só pelo nível.
 - **Mão secundária:** não dá skill; tem status base, implícito e afixos.
 - **Ataque básico:** usado quando nenhuma regra se aplica.
 
 ### 4.3 Mecânicas especiais
 - **Invocação:** entidade aliada que ocupa uma célula, tem vida e comportamento simples (atacar o mais próximo); limite simultâneo por skill.
 - **Totem:** invocação imóvel que usa uma skill sozinha (Cetro de xamã).
-- **Forma:** só com o Cajado de druida. Enquanto transformado, os 3 slots da arma usam as skills da forma, o posicionamento vira corpo a corpo e os status mudam (Urso: +vida/armadura; Lobo: +velocidade). Skills de armadura continuam disponíveis.
+- **Forma (pós-MVP):** só com o Cajado de druida. Urso e Lobo são opções do slot 3; enquanto transformado, os 3 slots da arma usam 3 skills fixas da forma, o posicionamento vira corpo a corpo e os status mudam (Urso: +vida/armadura; Lobo: +velocidade). Skills de armadura continuam disponíveis.
 
 ### 4.4 Tags
 Skills e tipos de arma declaram **tags** (ex.: `corpo a corpo`, `projétil`, `magia`, `área`, `invocação`, `transformação`, `uma mão`, `duas mãos`, `físico`, `fogo`, `gelo`, `raio`). Passivas e afixos escalam por tag.
@@ -235,7 +247,8 @@ No MVP as facções existem só na lore e nos NPCs da Fogueira; o sistema entra 
 ## 14. Escopo do MVP (primeiro jogável)
 
 1. Um personagem, nível máximo 60.
-2. **4 tipos de arma:** Espada + Escudo, Arco + Aljava, Grimório necromântico (invocações), Cajado de druida (formas). As outras 5 entram em seguida reaproveitando os sistemas.
+2. **4 tipos de arma:** Espada + Escudo (corpo a corpo, mão secundária), Arco + Aljava (à distância), Grimório necromântico (caos, invocações), Cajado elemental (magia de área, fogo/gelo/raio). Druida e Xamã ficam fora do MVP por serem mais complexos; as demais entram em seguida reaproveitando os sistemas.
+   - Skills no MVP: 4 × 9 = 36 de arma + 18 de armadura (2 opções por peso e slot) ≈ **54**. Design completo: 81 de arma + 6 de forma + 27 de armadura + 9 ataques básicos ≈ 123.
 3. Combate em grid por ticks com comportamento de posicionamento e 6 regras de prioridade.
 4. Mapas por tier com modificadores, salas + chefe, monstros normal/elite/chefe.
 5. Itens Normal/Mágico/Raro com afixos, mão secundária, skills de armadura.
