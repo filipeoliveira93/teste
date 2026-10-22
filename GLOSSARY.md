@@ -85,8 +85,16 @@ Nível de um item, igual ao tier do mapa onde caiu, que limita os tiers de afixo
 _Avoid_: iLvl, poder do item
 
 **Raridade**:
-Classe de um item quanto ao número de afixos: Normal, Mágico ou Raro.
-_Avoid_: Qualidade, cor
+Classe de um item quanto ao número de afixos: Comum (0), Incomum (1), Mágico (2), Raro (3–4) ou Lendário (com efeito especial).
+_Avoid_: Qualidade, cor, Normal
+
+**Implícito**:
+Bônus fixo que toda unidade de uma base de item possui, independente da raridade.
+_Avoid_: Afixo base, bônus inato
+
+**Peso da armadura**:
+Categoria de uma armadura (Tecido, Couro ou Placas) que define seus status típicos e as opções de skill de seu slot.
+_Avoid_: Tipo de armadura, classe de armadura
 
 **Afixo**:
 Bônus sorteado num item, como prefixo ou sufixo, com tier de valor.

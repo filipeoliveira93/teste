@@ -163,7 +163,7 @@ Perfis: **corpo a corpo** (aproxima e ataca), **à distância** (mantém 4–6 c
 
 ## 6. Mapas e runs
 
-- **Mapas:** lista fixa organizada por **tier**; matar o chefe de um mapa libera o próximo.
+- **Mapas:** lista fixa organizada por **tier** — **10 tiers** no design, **5 no MVP**, com 2–3 mapas por tier; matar o chefe de um mapa libera o próximo. Fendas são um tipo de mapa; outros tipos podem surgir no futuro.
 - **Modificadores de mapa:** escolhidos pelo jogador ("monstros +40% vida", "dano de fogo extra"); aumentam quantidade e chance de raridade do loot (não o nível do item).
 - **Run:** sequência de **salas** em grid (~15x15 células) com ondas de monstros + **chefe** na última. O número de salas cresce com o tier (ex.: tier 1 = 4 salas + chefe; tiers altos = 7 + chefe).
 - **Duração alvo:** 3 a 8 minutos, resultado da velocidade de clear da build (não há cronômetro).
@@ -184,31 +184,60 @@ Perfis: **corpo a corpo** (aproxima e ataca), **à distância** (mantém 4–6 c
 ## 8. Itens e loot
 
 ### 8.1 Slots de equipamento (9)
-Arma, mão secundária, elmo, peitoral, botas, luvas, amuleto e 2 anéis. Cinto: **[ABERTO]**.
+Arma, mão secundária, elmo, peitoral, luvas, botas, amuleto e 2 anéis. Cinto: **[ABERTO]**.
 
-### 8.2 Estrutura do item
-- **Base do item:** define slot, status base, implícito e, em armas e armaduras, as opções de skill.
-- **Raridade:** Normal (0 afixos), Mágico (1–2), Raro (3–6: até 3 prefixos + 3 sufixos). **Únicos fora do MVP.**
-- **Afixos:** prefixos e sufixos sorteados com tiers de valor.
-- **Nível do item:** igual ao tier do mapa de origem; limita os tiers de afixo possíveis.
+### 8.2 Raridades
 
-### 8.3 Baú e filtro de loot
+| Raridade | Cor | Afixos | MVP |
+|---|---|---|---|
+| Comum | Branco | 0 | Sim |
+| Incomum | Verde | 1 | Sim |
+| Mágico | Azul | 2 | Sim |
+| Raro | Roxo | 3–4 | Sim |
+| Lendário | Amarelo | afixos + 1 efeito especial fixo | Não |
+
+### 8.3 Bases de item
+- Toda base define slot, status base, requisitos de atributo e um **implícito** fixo que dá o sabor dela (ex.: Espada Curta: +% velocidade de ataque; Espada Larga: +% dano físico). Bases de arma e armadura também definem as opções de skill (pelo tipo de arma / peso + slot).
+- Bases organizadas em **3 faixas**: inicial (tiers 1–3), intermediária (4–7) e avançada (8–10), com **2 bases por faixa** de perfis diferentes (ex.: rápida × pesada).
+- **Armas:** 6 bases por tipo de arma.
+- **Armaduras** (elmo, peitoral, luvas, botas): por **peso** — Placas (armadura), Couro (misto; evasão no futuro), Tecido (mana e regeneração) — 6 bases por peso e slot.
+- **Mão secundária:** Escudo (6 por peso), Foco (6), Aljava (6); a Adaga secundária usa as bases de Adaga.
+- **Acessórios:** Amuleto e Anel, 6 bases cada, diferenciadas pelo implícito (ex.: anel de rubi = resistência a fogo).
+
+### 8.4 Afixos
+- **Prefixos (poder):** dano adicionado, % de dano, vida, armadura, mana máxima.
+- **Sufixos (suporte):** atributos, resistências, velocidade, crítico, acúmulo/força/duração de aflições, limiares, regeneração.
+- **Restrições por slot:** dano adicionado só em armas, anéis e luvas; velocidade de movimento só em botas; "converter dano físico em [elemento]" só em armas e **no máximo 1 por item**.
+- **Tiers de afixo:** 5 tiers de valor (T1 melhor). O tier máximo possível depende do **nível do item** (= tier do mapa): tiers de mapa 1–2 → até T4; … 9–10 → até T1.
+- **Pool:** ~45 afixos no design (~20 prefixos, ~25 sufixos); ~30 no MVP.
+
+### 8.5 Baú e filtro de loot
 - O loot vai para o **baú** ao fim de cada sala.
 - O **filtro de loot** decide por raridade mínima, tipo de base e (opcional) presença de afixo.
 - O que o filtro rejeita vira **pó rúnico**.
+
+### 8.6 Contagem de bases
+
+| Grupo | Design completo | MVP |
+|---|---|---|
+| Armas | 9 tipos × 6 = 54 | 4 × 6 = 24 |
+| Armaduras | 3 pesos × 4 slots × 6 = 72 | 3 × 4 × 2 faixas × 2 = 48 |
+| Mão secundária | Escudo 18 + Foco 6 + Aljava 6 = 30 | 12 + 4 + 4 = 20 |
+| Acessórios | 12 | 8 |
+| **Total** | **~168** | **~100** |
 
 ## 9. Crafting — Runas
 
 | Runa | Efeito |
 |---|---|
-| Runa da Centelha | Normal → Mágico |
-| Runa do Eco | Re-sorteia os afixos de um Mágico |
-| Runa da Coroa | Mágico → Raro |
+| Runa da Centelha | Comum → Incomum |
+| Runa da Coroa | Sobe uma raridade e adiciona 1 afixo (Incomum → Mágico → Raro) |
+| Runa do Eco | Re-sorteia os afixos de um Incomum ou Mágico |
 | Runa da Ruína | Re-sorteia os afixos de um Raro |
-| Runa do Acréscimo | Adiciona 1 afixo a um Raro |
+| Runa do Acréscimo | Adiciona 1 afixo a um Raro (até 4) |
 
 - **Pó rúnico** se acumula e é convertido em runas; também paga o respec.
-- Fora do MVP: remover afixo, re-sortear valores, crafting determinístico.
+- Fora do MVP: remover afixo, re-sortear valores, crafting determinístico, soquetes de runa.
 
 ## 10. Progresso offline
 
@@ -250,8 +279,8 @@ No MVP as facções existem só na lore e nos NPCs da Fogueira; o sistema entra 
 2. **4 tipos de arma:** Espada + Escudo (corpo a corpo, mão secundária), Arco + Aljava (à distância), Grimório necromântico (caos, invocações), Cajado elemental (magia de área, fogo/gelo/raio). Druida e Xamã ficam fora do MVP por serem mais complexos; as demais entram em seguida reaproveitando os sistemas.
    - Skills no MVP: 4 × 9 = 36 de arma + 18 de armadura (2 opções por peso e slot) ≈ **54**. Design completo: 81 de arma + 6 de forma + 27 de armadura + 9 ataques básicos ≈ 123.
 3. Combate em grid por ticks com comportamento de posicionamento e 6 regras de prioridade.
-4. Mapas por tier com modificadores, salas + chefe, monstros normal/elite/chefe.
-5. Itens Normal/Mágico/Raro com afixos, mão secundária, skills de armadura.
+4. Mapas em 5 tiers com modificadores, salas + chefe, monstros normal/elite/chefe.
+5. Itens Comum/Incomum/Mágico/Raro com ~30 afixos e ~100 bases (faixas inicial e intermediária), mão secundária, skills de armadura.
 6. Árvore de passivas com ~60–100 nós.
 7. Filtro de loot, pó rúnico e 5 runas.
 8. Progresso offline de até 3h e save local.
