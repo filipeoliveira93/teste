@@ -20,6 +20,14 @@ _Avoid_: Setup, loadout
 Categoria de arma (ex.: espada de duas mãos, arco, cajado) que determina as skills disponíveis nos slots da arma e o comportamento de posicionamento.
 _Avoid_: Classe
 
+**Mão secundária**:
+Peça empunhada junto a uma arma de uma mão (Escudo, Foco ou Adaga); armas de duas mãos não a permitem, exceto o Arco, que aceita somente Aljava.
+_Avoid_: Off-hand, secundária
+
+**Tag**:
+Rótulo que descreve uma skill ou tipo de arma (ex.: corpo a corpo, projétil, invocação, fogo, duas mãos) e pelo qual passivas e afixos a afetam.
+_Avoid_: Categoria, keyword
+
 **Maestria**:
 Progressão própria de cada tipo de arma, ganha lutando com ela, que desbloqueia opções e níveis das skills daquela arma.
 _Avoid_: Fama, especialização, proficiência
@@ -33,6 +41,18 @@ _Avoid_: Magia, habilidade, gema, spell
 **Slot de skill**:
 Posição fixa de uma arma ou peça de armadura que comporta uma skill escolhida entre as opções daquele slot.
 _Avoid_: Soquete, barra de skill
+
+**Invocação**:
+Entidade aliada criada por uma skill, que ocupa uma célula e luta com comportamento próprio; existe um limite simultâneo por skill.
+_Avoid_: Minion, pet, servo
+
+**Totem**:
+Invocação imóvel que usa uma skill sozinha.
+_Avoid_: Torre, estátua
+
+**Forma**:
+Transformação (ex.: Urso, Lobo) disponível só com o Cajado de druida, que troca as skills dos slots da arma e o comportamento de posicionamento enquanto durar.
+_Avoid_: Metamorfose, shapeshift
 
 **Regra de prioridade**:
 Par condição → skill, avaliado em ordem numa lista configurada pelo jogador, que decide qual skill o personagem usa a cada momento.
@@ -85,7 +105,7 @@ Material obtido dos drops rejeitados pelo filtro de loot, acumulado para formar 
 _Avoid_: Fragmento, sucata
 
 **Árvore de passivas**:
-Grafo de nós de bônus permanentes, comum a qualquer tipo de arma, onde o personagem gasta os pontos ganhos por nível, partindo sempre do centro.
+Grafo de nós de bônus permanentes, comum a qualquer tipo de arma, onde o personagem gasta os pontos ganhos por nível, partindo sempre do centro; dividida em regiões de Força, Destreza e Inteligência e nas zonas híbridas entre elas.
 _Avoid_: Talentos, skill tree, atlas
 
 ## Mapas e runs
