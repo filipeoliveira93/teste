@@ -180,6 +180,14 @@ _Avoid_: Hub, acampamento, cidade, base
 Grupo da Fogueira com uma visão própria sobre o uso do Âmago (O Bastião, O Círculo da Névoa, O Conclave Rúnico); o personagem se relaciona com todas sem se filiar a nenhuma.
 _Avoid_: Ordem, guilda, clã
 
+**Reputação**:
+Progresso do personagem com uma facção, independente das demais; libera o sistema próprio daquela facção.
+_Avoid_: Afinidade, standing, lealdade
+
+**Contrato**:
+Objetivo oferecido por uma facção que avança sozinho durante o loop de runs e concede reputação ao ser cumprido.
+_Avoid_: Missão, quest, bounty
+
 ## Simulação
 
 **Célula**:

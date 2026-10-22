@@ -169,7 +169,23 @@ Arma, mão secundária, elmo, peitoral, botas, luvas, amuleto e 2 anéis. Cinto:
 - Autosave a cada sala concluída e ao fechar o jogo.
 - Save na nuvem (ex.: Steam Cloud) fora do MVP.
 
-## 13. Escopo do MVP (primeiro jogável)
+## 13. Facções (pós-MVP)
+
+No MVP as facções existem só na lore e nos NPCs da Fogueira; o sistema entra na versão seguinte. Ver `docs/LORE.md`.
+
+- **Reputação** independente por facção: ganhar com uma nunca faz perder com outra; o personagem não se filia.
+- **Contratos:** objetivos que avançam sozinhos durante o loop (inclusive offline). O jogador escolhe quais ativar, até um limite de contratos ativos — o único custo de escolha.
+
+| Facção | Contratos (exemplos) | Sistema que libera |
+|---|---|---|
+| O Bastião | Estabilizar Fendas (matar chefes), runs sem morte | Bases defensivas, mais regras de prioridade |
+| O Círculo da Névoa | Caçar famílias de monstros, matar elites | Novas Fendas e modificadores de mapa exclusivos |
+| O Conclave Rúnico | Fendas com N modificadores, recuperar runas | Novas runas, melhor conversão de pó rúnico, crafting determinístico |
+
+- Recompensas de facção nunca alteram a árvore de passivas (ADR 0002).
+- NPCs de cada facção têm arcos próprios que avançam com a reputação e revelam o mistério da Quebra por pontos de vista diferentes; não há afinidade numérica por NPC nem escolhas exclusivas entre facções nos sistemas.
+
+## 14. Escopo do MVP (primeiro jogável)
 
 1. Um personagem, nível máximo 60.
 2. **4 tipos de arma:** Espada + Escudo, Arco + Aljava, Grimório necromântico (invocações), Cajado de druida (formas). As outras 5 entram em seguida reaproveitando os sistemas.
@@ -180,7 +196,7 @@ Arma, mão secundária, elmo, peitoral, botas, luvas, amuleto e 2 anéis. Cinto:
 7. Filtro de loot, pó rúnico e 5 runas.
 8. Progresso offline de até 3h e save local.
 
-## 14. Questões em aberto
+## 15. Questões em aberto
 
 - [ ] Nome do jogo.
 - [ ] Cinto entra como slot no MVP?
