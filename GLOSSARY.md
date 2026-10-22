@@ -35,7 +35,7 @@ _Avoid_: Fama, especialização, proficiência
 ## Skills
 
 **Skill**:
-Habilidade ativa concedida por uma arma ou peça de armadura equipada.
+Habilidade ativa concedida por uma arma ou peça de armadura equipada; as de armadura são sempre de suporte (buff), nunca de dano.
 _Avoid_: Magia, habilidade, gema, spell
 
 **Slot de skill**:
@@ -79,6 +79,10 @@ _Avoid_: Auto-ataque, ataque padrão
 **Base do item**:
 Tipo fixo de um item (ex.: Espada Longa, Peitoral de Couro) que define seu slot, status base e, em armas e armaduras, as opções de skill.
 _Avoid_: Modelo, template
+
+**Nível do item**:
+Nível de um item, igual ao tier do mapa onde caiu, que limita os tiers de afixo possíveis nele.
+_Avoid_: iLvl, poder do item
 
 **Raridade**:
 Classe de um item quanto ao número de afixos: Normal, Mágico ou Raro.
@@ -129,6 +133,18 @@ _Avoid_: Partida, incursão, expedição
 **Sala**:
 Arena em grid onde acontece uma etapa da run, com ondas de monstros ou o chefe.
 _Avoid_: Fase, onda, área
+
+**Elite**:
+Monstro mais forte que o normal, com um ou dois modificadores de monstro.
+_Avoid_: Raro, campeão
+
+**Modificador de monstro**:
+Característica sorteada que torna um elite mais perigoso (ex.: rápido, explode ao morrer).
+_Avoid_: Afixo de monstro, aura
+
+**Família de monstros**:
+Grupo temático de monstros (ex.: mortos-vivos, bestas, cultistas) que povoa um mapa.
+_Avoid_: Raça, facção
 
 **Chefe**:
 Monstro da última sala de uma run; derrotá-lo conclui a run.
