@@ -40,8 +40,8 @@ Tiers maiores / mais modificadores
 
 ### 3.2 Atributos, recurso e defesas
 - **Atributos:** Força, Destreza, Inteligência — vêm da árvore e dos itens; bases de item exigem mínimos.
-- **Mana:** recurso único das skills, regenera com o tempo.
-- **Defesa no MVP:** Vida, Armadura, Resistências (fogo/gelo/raio) e bloqueio (escudo). Evasão e escudo de energia ficam para depois.
+- **Mana:** recurso único das skills; regenera **apenas com o tempo** (o ataque básico não custa nem gera mana).
+- **Defesa no MVP:** Vida, Armadura, Resistências (fogo/gelo/raio/caos) e bloqueio (escudo). Sem acerto/evasão no MVP: todo golpe acerta. Evasão e escudo de energia ficam para depois.
 
 ### 3.3 Maestria
 - Cada **tipo de arma** tem sua **maestria**, ganha lutando com ele.
@@ -83,7 +83,10 @@ Skills e tipos de arma declaram **tags** (ex.: `corpo a corpo`, `projétil`, `ma
 ## 5. Combate
 
 ### 5.1 Simulação (ADR 0001)
-- Top-down 2D em **grid de células**, avançando em **ticks** fixos, determinístico a partir de um seed.
+- Top-down 2D em **grid de células**, avançando em **ticks** fixos (**10 ticks/s**), determinístico a partir de um seed.
+- Movimento em 8 direções (diagonal vale 1), 1 entidade por célula; salas do MVP sem obstáculos.
+- Formas de área: célula única, linha, cone (90°), quadrado N×N, raio R. Projéteis viajam célula a célula e param no primeiro inimigo (salvo "perfurar").
+- Ações, recargas e durações contadas em ticks; velocidade de ataque/conjuração reduz a duração da ação.
 - Áreas de efeito são formas sobre células (quadrado, cone, linha).
 - A cena Godot só anima a transição entre ticks.
 
@@ -101,6 +104,50 @@ Automático, pelo **comportamento de posicionamento** do tipo de arma (aproximar
 4. SE alvo é elite/chefe      → Maldição da Fraqueza
 5. (nenhuma) → ataque básico
 ```
+
+### 5.4 Tipos de dano e mitigação
+
+| Tipo | Mitigado por | Identidade |
+|---|---|---|
+| Físico | Armadura | Base das armas |
+| Fogo | Resistência a fogo | Dano alto em área |
+| Gelo | Resistência a gelo | Controle |
+| Raio | Resistência a raio | Dano variável (mín. baixo, máx. alto) |
+| Caos | Resistência a caos | Dano do Âmago bruto; armadura não reduz; resistência começa negativa |
+
+- **Armadura:** `redução = armadura / (armadura + 5 × dano do golpe)`, máx. 90% — forte contra muitos golpes pequenos, fraca contra golpes pesados.
+- **Resistências:** em %, limite de 75%; Fendas de tier alto aplicam penalidade de resistência.
+
+### 5.5 Cálculo de dano
+1. Dano base (arma para ataques, skill para magias).
+2. \+ dano adicionado.
+3. × (1 + soma dos "aumentado %").
+4. × cada "mais %" (só skills e keystones).
+5. Crítico (chance e multiplicador).
+6. Mitigação no alvo (armadura ou resistência).
+
+### 5.6 Aflições (modelo de acúmulo, estilo Horizon Zero Dawn)
+
+| Tipo de dano | Aflição | Categoria | Efeito |
+|---|---|---|---|
+| Físico | Sangramento | Dano | Dano contínuo físico |
+| Fogo | Incendiar | Dano | Dano contínuo de fogo |
+| Caos | Veneno | Dano | Dano contínuo de caos |
+| Gelo | Lentidão | Controle | Reduz velocidade de ação e movimento |
+| Raio | Atordoamento | Controle | Interrompe e paralisa por poucos ticks |
+
+- Cada alvo tem um **medidor** por aflição. O **dano já mitigado** de um tipo enche o medidor correspondente; ao atingir o **limiar**, a aflição dispara e o medidor zera.
+- O medidor **decai** se o alvo ficar alguns segundos sem receber dano daquele tipo (é preciso pressão contínua).
+- **Limiar** = % da vida máxima do alvo (base 30%) × modificador da família de monstros (**fraqueza** < 1, resistência > 1, ou imune — ex.: esqueletos não sangram).
+- **Competição entre aflições de dano:** enquanto Sangramento, Incendiar ou Veneno está ativo num alvo, o limiar das outras duas aflições de dano **dobra**. Aflições de controle não afetam nem são afetadas.
+- Aflições de controle não reduzem o próprio limiar; após o Atordoamento o alvo fica imune a atordoamento por alguns segundos; chefes têm duração reduzida.
+- A build controla aflições por três alavancas: **acúmulo** (quanto cada ponto de dano enche o medidor, ex.: "+30% de acúmulo de incendiar"), **força** (dano/efeito da aflição) e **duração**. Skills especialistas têm acúmulo multiplicado (ex.: Flecha Envenenada ×3).
+- Fontes: skills, afixos, passivas (por tag) e implícitos de base.
+- O mesmo sistema vale para monstros contra o personagem; afixos e passivas podem subir os limiares do personagem.
+- Misturar vários elementos é possível, mas caro: elementos ficam em áreas diferentes da árvore e afixos de conversão são exclusivos (um elemento por item).
+
+### 5.7 Monstros em combate
+Perfis: **corpo a corpo** (aproxima e ataca), **à distância** (mantém 4–6 células), **conjurador** (distância, área telegrafada ou invocação). Todos miram o alvo mais próximo (personagem ou invocação). Chefes têm padrão scriptado.
 
 ## 6. Mapas e runs
 

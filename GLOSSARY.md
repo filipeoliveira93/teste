@@ -112,6 +112,36 @@ _Avoid_: Fragmento, sucata
 Grafo de nós de bônus permanentes, comum a qualquer tipo de arma, onde o personagem gasta os pontos ganhos por nível, partindo sempre do centro; dividida em regiões de Força, Destreza e Inteligência e nas zonas híbridas entre elas.
 _Avoid_: Talentos, skill tree, atlas
 
+## Combate
+
+**Tipo de dano**:
+Natureza de um dano (Físico, Fogo, Gelo, Raio ou Caos), que define o que o mitiga e qual aflição ele acumula.
+_Avoid_: Elemento, escola
+
+**Caos**:
+Tipo de dano do Âmago bruto; não é reduzido por armadura.
+_Avoid_: Âmago (como dano), sombra, corrupção
+
+**Aflição**:
+Estado negativo que dispara num alvo quando o dano de um tipo acumulado nele atinge o limiar; é de dano (Sangramento, Incendiar, Veneno) ou de controle (Lentidão, Atordoamento).
+_Avoid_: Status, debuff, ailment, efeito
+
+**Medidor**:
+Barra de uma aflição num alvo, enchida pelo dano já mitigado do tipo correspondente e esvaziada com o tempo.
+_Avoid_: Buildup, barra de status
+
+**Limiar**:
+Valor do medidor em que a aflição dispara, proporcional à vida máxima do alvo e ajustado por fraquezas e resistências.
+_Avoid_: Threshold, gatilho
+
+**Acúmulo**:
+Quanto cada ponto de dano enche o medidor de uma aflição.
+_Avoid_: Chance de aflição, taxa
+
+**Fraqueza**:
+Característica de um monstro ou família que reduz o limiar de uma aflição específica.
+_Avoid_: Vulnerabilidade, ponto fraco
+
 ## Mapas e runs
 
 **Mapa**:
