@@ -166,6 +166,20 @@ _Avoid_: Game over, derrota
 Recompensa pelo tempo em que o jogo ficou fechado (até 3h), projetada a partir de runs simuladas com a configuração atual no momento em que o jogador volta.
 _Avoid_: AFK, idle gain
 
+## Mundo
+
+**Âmago**:
+A fonte de toda magia; energia bruta que, sem o filtro de runas, corrompe o que toca.
+_Avoid_: Fome, Abismo, mana, éter
+
+**Fogueira**:
+O assentamento do jogador, construído em volta da chama onde o personagem desperta ao morrer; o nome não muda conforme ele cresce.
+_Avoid_: Hub, acampamento, cidade, base
+
+**Facção**:
+Grupo da Fogueira com uma visão própria sobre o uso do Âmago (O Bastião, O Círculo da Névoa, O Conclave Rúnico); o personagem se relaciona com todas sem se filiar a nenhuma.
+_Avoid_: Ordem, guilda, clã
+
 ## Simulação
 
 **Célula**:
