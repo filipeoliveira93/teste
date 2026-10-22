@@ -118,6 +118,10 @@ _Avoid_: Talentos, skill tree, atlas
 Local de combate de uma lista fixa organizada por tier; matar o chefe de um mapa libera o seguinte.
 _Avoid_: Fase, nível, dungeon
 
+**Fenda**:
+Mapa originado por uma ruptura do Selo, povoado por criaturas corrompidas; é uma das origens possíveis de mapa, não a única.
+_Avoid_: Portal, rift
+
 **Tier**:
 Grau de dificuldade e recompensa de um mapa.
 _Avoid_: Dificuldade, ato
