@@ -35,7 +35,7 @@ _Avoid_: Fama, especialização, proficiência
 ## Skills
 
 **Skill**:
-Habilidade ativa concedida por uma arma ou peça de armadura equipada; as de armadura são sempre de suporte (buff), nunca de dano.
+Habilidade ativa concedida por uma arma ou peça de armadura equipada; as de armadura são sempre de suporte (buff, defesa ou mobilidade), nunca de dano.
 _Avoid_: Magia, habilidade, gema, spell
 
 **Slot de skill**:

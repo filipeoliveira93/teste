@@ -1,178 +1,188 @@
-# GDD — Idle ARPG (rascunho v0.1)
+# GDD — Idle ARPG (v0.2)
 
-> Documento vivo. Seções marcadas com **[ABERTO]** ainda precisam de decisão.
+> Resultado da sessão de grilling. Termos em **negrito** seguem o `GLOSSARY.md`; decisões de arquitetura estão em `docs/adr/`.
 
 ## 1. Visão geral
 
-Um **idle ARPG**: o jogador cria um personagem, monta a build (arma, skills, passivas, itens) e o personagem limpa mapas sozinho. A graça está em **planejar e otimizar a build**, não em reflexo.
+Um **idle ARPG** dark fantasy para PC (Steam/itch, mouse e teclado). O jogador monta a **build** — equipamento, skills, passivas e **regras de prioridade** — e o **personagem** repete runs sozinho. A graça está em planejar e otimizar a build; o jogador pode simplesmente fechar o jogo e o progresso continua.
 
-- **Inspirações:** Path of Exile (árvore de passivas, afixos, crafting com moedas), Diablo (loot, raridades), Last Epoch (crafting controlado, especialização de skills), jogos idle (progresso automático/offline).
+- **Inspirações:** Path of Exile (árvore de passivas, afixos, crafting), Albion Online (skills por arma e armadura, mão secundária), Last Epoch (necromante, xamã, druida), Diablo (loot e dificuldade por modificadores).
 - **Engine:** Godot 4.x (GDScript).
 - **Pilares:**
-  1. **Build é tudo:** cada escolha (arma, nó da árvore, afixo) muda o resultado de forma perceptível.
-  2. **Loot que dá vontade de olhar:** drops com afixos aleatórios e chance real de upgrade.
-  3. **Progresso sempre andando:** mesmo sem jogar ativamente, algo evolui.
-  4. **Risco nas runs:** cada mapa é uma aposta com modificadores e recompensas.
+  1. **A build decide tudo:** não há sorte de bênçãos nem escolhas durante a run; o resultado vem da build.
+  2. **Loot que vale olhar:** afixos sorteados e chance real de upgrade.
+  3. **Progresso sempre andando:** loop automático e progresso offline sem exigir nada do jogador.
+  4. **Rendimento por hora:** o jogador escolhe quanto risco (tier e modificadores) a build aguenta.
 
 ## 2. Loop principal
 
 ```
-Escolher mapa (+ modificadores)
+Escolher mapa + modificadores de mapa
         ↓
-Run automática (combate por prioridades)
+Loop de runs automático (salas → chefe)
         ↓
-Fim da run: sucesso → loot + EXP | morte → perde loot da run
+Loot ao fim de cada sala → filtro de loot → baú (rejeitado vira pó rúnico)
         ↓
-Gastar pontos (árvore / skills), equipar e craftar itens
+Gastar pontos (passivas), evoluir maestria, equipar e craftar com runas
         ↓
-Mapas mais difíceis
+Tiers maiores / mais modificadores
 ```
 
-## 3. Personagem e "classe pela arma"
+- Um **personagem** por save no MVP.
+- O **loop de runs** repete o mesmo mapa e modificadores até o jogador mudar algo ou o personagem morrer **3 vezes seguidas** (aviso: "Sua build não está aguentando este mapa/modificadores").
+- **Morte** custa apenas o tempo da run: sem perda de loot, nível ou EXP.
 
-- Não existe classe fixa: **a arma equipada define o conjunto de skills ativas disponíveis**.
-- Trocar de arma = trocar de "classe" (skills), mas a árvore de passivas e o nível continuam.
-- **Tipos de arma iniciais (proposta):**
+## 3. Personagem e progressão
 
-| Arma | Arquétipo | Atributo principal | Exemplos de skill |
-|---|---|---|---|
-| Espada / Machado (2 mãos) | Guerreiro, corpo a corpo pesado | Força | Golpe Giratório, Investida, Grito de Guerra |
-| Adagas (dual) | Assassino, crítico e veneno | Destreza | Golpe Venenoso, Lâminas Voadoras, Evasão |
-| Arco | Atirador à distância | Destreza | Chuva de Flechas, Tiro Perfurante, Armadilha |
-| Cajado | Mago elemental | Inteligência | Bola de Fogo, Nova de Gelo, Corrente Elétrica |
-| Cetro + Escudo | Paladino, defesa e aura | Força/Int | Martelo Sagrado, Aura de Proteção, Consagrar |
+### 3.1 Nível
+- EXP por monstro morto e por run concluída.
+- **1 ponto de passiva por nível**; nível máximo **60 no MVP**.
 
-**[ABERTO]** Skills ficam presas à arma ou o jogador pode ter "gemas"/skills avulsas que exigem tipo de arma?
+### 3.2 Atributos, recurso e defesas
+- **Atributos:** Força, Destreza, Inteligência — vêm da árvore e dos itens; bases de item exigem mínimos.
+- **Mana:** recurso único das skills, regenera com o tempo.
+- **Defesa no MVP:** Vida, Armadura, Resistências (fogo/gelo/raio) e bloqueio (escudo). Evasão e escudo de energia ficam para depois.
 
-## 4. Progressão
+### 3.3 Maestria
+- Cada **tipo de arma** tem sua **maestria**, ganha lutando com ele.
+- A maestria desbloqueia as opções de skill dos slots da arma e sobe o nível dessas skills.
 
-### 4.1 Nível e EXP
-- EXP por monstro morto e bônus ao concluir o mapa.
-- Cada nível = **1 ponto de passiva** (+ ponto de skill a cada N níveis).
-- Curva exponencial suave; penalidade de EXP em morte **[ABERTO]**.
+## 4. Tipos de arma e skills
 
-### 4.2 Árvore de passivas (grande, estilo PoE)
-- Árvore **compartilhada** por todos os personagens.
-- **Ponto de partida depende da arma inicial** escolhida na criação (região Força / Destreza / Inteligência e híbridas).
-- Tipos de nó:
-  - **Pequeno:** +atributo, +% dano, +vida etc.
-  - **Notável:** bônus forte e temático.
-  - **Keystone:** muda regras (ex.: "Sem regeneração de vida, mas +50% roubo de vida").
-- Respec com custo (moeda) para incentivar planejamento.
-- Dados da árvore definidos em arquivo (JSON/Resource) para facilitar balanceamento e editor visual.
+### 4.1 A arma define as skills (estilo Albion)
+Não existe classe. O **tipo de arma** equipado define as skills dos slots da arma, o **comportamento de posicionamento** e as tags.
 
-### 4.3 Skills ativas
-- Cada skill tem nível próprio e **mini-árvore de especialização** (estilo Last Epoch) **[ABERTO: entra no MVP?]**.
-- Tags: `ataque`, `magia`, `projétil`, `área`, `fogo`, `gelo`, `raio`, `físico`, `caos`, `invocação` — passivas e afixos escalam por tag.
+| # | Tipo de arma | Mãos | Atributo | Identidade | Mão secundária |
+|---|---|---|---|---|---|
+| 1 | Espada | 1 | Força | Guerreiro equilibrado: golpes, investida, gritos | Escudo / Foco |
+| 2 | Machado | 2 | Força | Golpes pesados em área, sangramento | — |
+| 3 | Adaga | 1 | Destreza | Crítico, veneno, golpes rápidos | Adaga (dual) / Escudo / Foco |
+| 4 | Arco | 2 | Destreza | Projéteis, chuva de flechas, armadilhas | **somente Aljava** |
+| 5 | Cajado elemental | 2 | Inteligência | Fogo, gelo e raio em área | — |
+| 6 | Tomo arcano | 1 | Inteligência | Projéteis mágicos, controle, teleporte | Escudo / Foco |
+| 7 | Grimório necromântico | 1 | Inteligência | Invocação de mortos-vivos, maldições | Escudo / Foco |
+| 8 | Cetro de xamã | 1 | Força/Int | Totens, raio e terra | Escudo / Foco |
+| 9 | Cajado de druida | 2 | Destreza/Int | Formas de Urso e Lobo, natureza | — |
 
-## 5. Combate automático com prioridades
+> A combinação exata de mão secundária por arma de uma mão será fechada na spec; a regra fixa é: **Adaga secundária só com Adaga principal; duas mãos não usam secundária, exceto Arco + Aljava.**
 
-- O personagem age sozinho em ticks de simulação.
-- O jogador configura uma **lista de regras** (estilo gambits), avaliadas de cima para baixo:
+### 4.2 Slots de skill
+- **Arma:** 3 slots, cada um com **3 opções** desbloqueadas pela maestria.
+- **Elmo, peitoral, botas:** 1 slot cada, com 2–3 opções vindas da **base da armadura** e desbloqueadas pelo **nível** do personagem. Skills de armadura são **sempre suporte — buff, defesa ou mobilidade (botas) — nunca dano**.
+- **Mão secundária:** não dá skill; tem status base, implícito e afixos.
+- **Ataque básico:** usado quando nenhuma regra se aplica.
+
+### 4.3 Mecânicas especiais
+- **Invocação:** entidade aliada que ocupa uma célula, tem vida e comportamento simples (atacar o mais próximo); limite simultâneo por skill.
+- **Totem:** invocação imóvel que usa uma skill sozinha (Cetro de xamã).
+- **Forma:** só com o Cajado de druida. Enquanto transformado, os 3 slots da arma usam as skills da forma, o posicionamento vira corpo a corpo e os status mudam (Urso: +vida/armadura; Lobo: +velocidade). Skills de armadura continuam disponíveis.
+
+### 4.4 Tags
+Skills e tipos de arma declaram **tags** (ex.: `corpo a corpo`, `projétil`, `magia`, `área`, `invocação`, `transformação`, `uma mão`, `duas mãos`, `físico`, `fogo`, `gelo`, `raio`). Passivas e afixos escalam por tag.
+
+## 5. Combate
+
+### 5.1 Simulação (ADR 0001)
+- Top-down 2D em **grid de células**, avançando em **ticks** fixos, determinístico a partir de um seed.
+- Áreas de efeito são formas sobre células (quadrado, cone, linha).
+- A cena Godot só anima a transição entre ticks.
+
+### 5.2 Movimento
+Automático, pelo **comportamento de posicionamento** do tipo de arma (aproximar, manter distância). Formas forçam corpo a corpo. Skills de mobilidade das botas podem ser acionadas pelas regras.
+
+### 5.3 Regras de prioridade
+- **6 regras** no MVP (pode crescer com a progressão), avaliadas de cima para baixo; cada uma aponta para uma skill equipada.
+- Condições: vida/mana %, nº de inimigos num raio, alvo é elite/chefe, buff ativo/inativo, skill fora de recarga, nº de invocações ativas, em forma X / fora de forma.
 
 ```
-1. SE vida < 35%           → usar Poção
-2. SE inimigos próximos ≥ 3 → usar Golpe Giratório
-3. SE alvo é Elite/Chefe   → usar Investida
-4. SEMPRE                   → Ataque Básico
+1. SE vida < 35%              → Pele de Pedra (peitoral)
+2. SE invocações ativas < 3   → Erguer Esqueleto
+3. SE inimigos em raio 2 ≥ 3  → Nova de Ossos
+4. SE alvo é elite/chefe      → Maldição da Fraqueza
+5. (nenhuma) → ataque básico
 ```
 
-- Condições iniciais: vida/mana %, nº de inimigos, tipo de alvo, buff ativo/inativo, cooldown pronto.
-- Slots de regra limitados e desbloqueáveis com a progressão.
+## 6. Mapas e runs
 
-### 5.1 Estatísticas base
-Vida, Mana, Armadura, Evasão, Escudo de Energia, Resistências (fogo/gelo/raio/caos), Chance/Multiplicador de crítico, Velocidade de ataque/conjuração, Roubo de vida.
+- **Mapas:** lista fixa organizada por **tier**; matar o chefe de um mapa libera o próximo.
+- **Modificadores de mapa:** escolhidos pelo jogador ("monstros +40% vida", "dano de fogo extra"); aumentam quantidade e chance de raridade do loot (não o nível do item).
+- **Run:** sequência de **salas** em grid (~15x15 células) com ondas de monstros + **chefe** na última. O número de salas cresce com o tier (ex.: tier 1 = 4 salas + chefe; tiers altos = 7 + chefe).
+- **Duração alvo:** 3 a 8 minutos, resultado da velocidade de clear da build (não há cronômetro).
 
-**[ABERTO]** Visualização do combate: cena 2D com sprites se movendo, ou representação abstrata (barras, log, ícones)?
+### 6.1 Monstros
+- **Normal**, **Elite** (mais vida + 1–2 modificadores de monstro, ex.: rápido, explode ao morrer, resistente a fogo) e **Chefe** (padrão próprio: áreas telegrafadas no grid, invocar ajudantes).
+- Cada mapa tem uma **família de monstros** temática (mortos-vivos, bestas, cultistas…).
 
-## 6. Mapas e runs (roguelike)
+## 7. Árvore de passivas (ADR 0002)
 
-- Cada mapa tem **tier** (dificuldade), bioma e lista de monstros.
-- Uma **run** = sequência de salas/ondas + chefe final.
-- **Modificadores** aleatórios no mapa (estilo PoE): "+30% vida dos monstros", "monstros causam dano de fogo extra" → aumentam quantidade/raridade do loot.
-- **Escolhas durante a run** (roguelike): entre salas o jogo oferece bênçãos/caminhos (ex.: "+20% dano até o fim da run" ou "sala de tesouro com elite").
-- **Morte:** termina a run e perde o loot acumulado nela; personagem e EXP já obtida ficam **[ABERTO: penalidade de EXP?]**.
-- Concluir mapas desbloqueia tiers superiores (atlas/progressão de mapas).
+- Uma árvore só, comum a qualquer tipo de arma; o personagem começa **sempre do centro**.
+- Regiões de **Força**, **Destreza** e **Inteligência** e zonas híbridas entre elas (Força/Destreza, Força/Inteligência, Destreza/Inteligência).
+- Nós citam apenas **atributos, status e tags** — nunca um tipo de arma pelo nome. Armas novas entram declarando tags, sem alterar a árvore.
+- Tipos de nó: pequeno, notável e keystone (muda regras).
+- MVP: ~60–100 nós.
+- **Respec** nó a nó pagando **pó rúnico**; só pode remover nós que não deixem outros desconectados.
 
-## 7. Loot e itens
+## 8. Itens e loot
 
-### 7.1 Raridades
-| Raridade | Afixos | Observação |
-|---|---|---|
-| Normal | 0 | Base pura |
-| Mágico | 1–2 | 1 prefixo + 1 sufixo |
-| Raro | 3–6 | até 3 prefixos + 3 sufixos |
-| Único | fixos | Efeitos especiais que mudam builds |
+### 8.1 Slots de equipamento (9)
+Arma, mão secundária, elmo, peitoral, botas, luvas, amuleto e 2 anéis. Cinto: **[ABERTO]**.
 
-### 7.2 Estrutura de item
-- **Base** (ex.: Espada Longa) → dano/defesa base, requisitos, implícito.
-- **Afixos** sorteados de um pool por slot e nível do item, cada um com **tiers** (T1 melhor) e faixa de valores.
-- Slots: arma principal, mão secundária, elmo, peitoral, luvas, botas, cinto, amuleto, 2 anéis.
+### 8.2 Estrutura do item
+- **Base do item:** define slot, status base, implícito e, em armas e armaduras, as opções de skill.
+- **Raridade:** Normal (0 afixos), Mágico (1–2), Raro (3–6: até 3 prefixos + 3 sufixos). **Únicos fora do MVP.**
+- **Afixos:** prefixos e sufixos sorteados com tiers de valor.
+- **Nível do item:** igual ao tier do mapa de origem; limita os tiers de afixo possíveis.
 
-### 7.3 Filtro de loot
-Essencial em idle: regras para auto-descartar/vender itens abaixo de um critério.
+### 8.3 Baú e filtro de loot
+- O loot vai para o **baú** ao fim de cada sala.
+- O **filtro de loot** decide por raridade mínima, tipo de base e (opcional) presença de afixo.
+- O que o filtro rejeita vira **pó rúnico**.
 
-## 8. Crafting
+## 9. Crafting — Runas
 
-Moedas que caem dos mapas (nomes provisórios):
-
-| Moeda | Efeito |
+| Runa | Efeito |
 |---|---|
-| Fragmento de Transmutação | Normal → Mágico |
-| Fragmento de Alteração | Re-sorteia afixos de item mágico |
-| Fragmento de Ascensão | Mágico → Raro |
-| Fragmento do Caos | Re-sorteia todos os afixos de item raro |
-| Fragmento de Exaltação | Adiciona 1 afixo a item raro |
-| Fragmento de Purificação | Remove 1 afixo aleatório |
-| Fragmento Divino | Re-sorteia valores dentro do tier |
+| Runa da Centelha | Normal → Mágico |
+| Runa do Eco | Re-sorteia os afixos de um Mágico |
+| Runa da Coroa | Mágico → Raro |
+| Runa da Ruína | Re-sorteia os afixos de um Raro |
+| Runa do Acréscimo | Adiciona 1 afixo a um Raro |
 
-**[ABERTO]** Incluir crafting determinístico (estilo Last Epoch, escolher afixo) no MVP ou depois?
+- **Pó rúnico** se acumula e é convertido em runas; também paga o respec.
+- Fora do MVP: remover afixo, re-sortear valores, crafting determinístico.
 
-## 9. Idle / progresso offline
+## 10. Progresso offline
 
-- Ao voltar, o jogo **simula o tempo ausente** de forma resumida (estatística, não tick a tick) usando a última run configurada.
-- Limite de tempo offline (ex.: 12h) **[ABERTO]**.
-- Loot offline passa pelo filtro de loot automaticamente.
+- Limite de **3 horas**.
+- Ao voltar, o jogo simula sem tela algumas runs aceleradas (ex.: 5) com a configuração **atual**, tira as médias (tempo por run, taxa de morte, loot) e projeta para o tempo ausente. O jogador não precisa revisar nada.
+- Se o loop pararia por 3 mortes seguidas, o offline conta só até esse ponto.
 
-## 10. Arquitetura técnica (proposta)
+## 11. Arte e apresentação
 
-- **Simulação separada da apresentação:** toda a lógica de combate, loot e progresso em scripts puros (sem depender de nós de cena), para permitir:
-  - simulação offline acelerada;
-  - testes automatizados;
-  - trocar a visualização sem mexer nas regras.
-- **Dados em Resources/JSON:** armas, skills, afixos, árvore, mapas, monstros → balanceamento sem tocar em código.
-- **RNG com seed** por run, para reprodutibilidade e depuração.
-- **Save** em JSON versionado (`user://save.json`) com migração entre versões.
+- **Pixel art top-down, 32x32 por célula.**
+- MVP com arte placeholder (formas/assets gratuitos); arte final depois de validar o loop.
+- Interface pensada para mouse, com tooltips densos de itens.
 
-Estrutura de pastas sugerida:
-```
-project.godot
-data/          # definições (armas, skills, afixos, árvore, mapas)
-scripts/
-  core/        # simulação: combate, stats, loot, crafting, progressão
-  systems/     # save, offline, RNG
-  ui/          # telas e componentes
-scenes/        # cenas Godot
-tests/         # testes (GUT ou gdUnit4)
-docs/          # GDD e notas
-```
+## 12. Save
 
-## 11. Escopo do MVP
+- Local, JSON versionado com migração entre versões.
+- Autosave a cada sala concluída e ao fechar o jogo.
+- Save na nuvem (ex.: Steam Cloud) fora do MVP.
 
-1. Criar personagem escolhendo arma inicial (2–3 tipos de arma no começo).
-2. Combate automático com regras de prioridade.
-3. 3–5 mapas com tiers e modificadores; runs com salas + chefe.
-4. Loot com raridades e afixos; equipar itens.
-5. Árvore de passivas (versão reduzida, ~60–100 nós, estrutura pronta para crescer).
-6. Crafting com 4–5 moedas básicas.
-7. Save/load + progresso offline simples.
+## 13. Escopo do MVP (primeiro jogável)
 
-## 12. Questões em aberto (resumo)
+1. Um personagem, nível máximo 60.
+2. **4 tipos de arma:** Espada + Escudo, Arco + Aljava, Grimório necromântico (invocações), Cajado de druida (formas). As outras 5 entram em seguida reaproveitando os sistemas.
+3. Combate em grid por ticks com comportamento de posicionamento e 6 regras de prioridade.
+4. Mapas por tier com modificadores, salas + chefe, monstros normal/elite/chefe.
+5. Itens Normal/Mágico/Raro com afixos, mão secundária, skills de armadura.
+6. Árvore de passivas com ~60–100 nós.
+7. Filtro de loot, pó rúnico e 5 runas.
+8. Progresso offline de até 3h e save local.
 
-- [ ] Nome do jogo e ambientação (dark fantasy?).
-- [ ] Visualização do combate: 2D com sprites ou abstrata.
-- [ ] Skills presas à arma ou gemas avulsas com requisito de arma.
-- [ ] Mini-árvore de especialização de skills no MVP?
-- [ ] Penalidade de morte (só loot da run, ou também EXP?).
-- [ ] Limite de progresso offline.
-- [ ] Monetização / plataforma de lançamento (Steam, mobile, web).
+## 14. Questões em aberto
+
+- [ ] Nome do jogo.
+- [ ] Cinto entra como slot no MVP?
+- [ ] Quais mãos secundárias cada arma de uma mão aceita (Escudo e Foco para todas?).
+- [ ] Monetização e plataforma de lançamento (Steam, itch).

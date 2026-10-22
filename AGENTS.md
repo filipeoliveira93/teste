@@ -1,10 +1,10 @@
 # AGENTS.md
 
-Idle ARPG em **Godot 4.x (GDScript)**: personagem limpa mapas automaticamente (combate por regras de prioridade), com loot de afixos, árvore de passivas, skills definidas pela arma, crafting e runs de mapa roguelike.
+Idle ARPG em **Godot 4.x (GDScript)**: personagem repete runs em mapas automaticamente (combate top-down em grid, por regras de prioridade), com loot de afixos, árvore de passivas, skills definidas pela arma e crafting com runas.
 
-- Design do jogo: `docs/GDD.md`
+- Design do jogo: `docs/GDD.md` · Vocabulário: `GLOSSARY.md` · Decisões: `docs/adr/`
 - Idioma: conversas e documentação em português-BR; identificadores de código em inglês.
-- Regra de arquitetura: a simulação (combate, stats, loot, crafting, progressão) não depende de nós de cena, para permitir progresso offline e testes automatizados.
+- Regra de arquitetura: a simulação roda em grid por ticks, determinística e sem depender de nós de cena (ADR 0001).
 
 ## Agent skills
 
