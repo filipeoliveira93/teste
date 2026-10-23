@@ -1,0 +1,25 @@
+key o black
+key w sand
+key B brown
+key b clay
+
+layer bow z=25 at=4,12
+.ooo....
+.owbo...
+.ow.Bo..
+.ow.bBo.
+.ow..bBo
+.ow..bBo
+.ow..bBo
+.ow..bBo
+.ow..bBo
+.ow..bBo
+.ow..bBo
+.ow..bBo
+.ow..bBo
+.ow..bBo
+.ow..bBo
+.ow.bBo.
+.ow.Bo..
+.owbo...
+.ooo....

@@ -1,0 +1,34 @@
+key o black
+key W white
+key Q cyan
+key q blue
+key G gold
+key B brown
+
+layer staff z=25 at=7,3
+.oooo.
+oQWQqo
+oQQQqo
+oqQqqo
+.oqqo.
+.oGGo.
+.oBBo.
+.oBBo.
+.oBBo.
+.oBBo.
+.oBBo.
+.oBBo.
+.oBBo.
+.oBBo.
+.oBBo.
+.oBBo.
+.oBBo.
+.oBBo.
+.oBBo.
+.oBBo.
+.oBBo.
+.oBBo.
+.oBBo.
+.oBBo.
+.oBBo.
+.oooo.

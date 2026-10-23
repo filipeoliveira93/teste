@@ -1,0 +1,26 @@
+key o black
+key W white
+key L steel_light
+key g gold
+key G orange
+key B brown
+
+layer blade z=25 at=6,7
+...oo...
+..oWLo..
+..oWLo..
+..oWLo..
+..oWLo..
+..oWLo..
+..oWLo..
+..oWLo..
+..oWLo..
+..oWLo..
+..oWLo..
+..oWLo..
+..oWLo..
+oggggggo
+.ooBBoo.
+..oBBo..
+..ogGo..
+...oo...

@@ -1,0 +1,26 @@
+key o black
+key W white
+key L steel_light
+key D steel_dark
+key B brown
+
+layer axe z=25 at=1,6
+.......oooo
+...oooooBBo
+..oWLLDoBBo
+.oWLLLLDBBo
+oWLLLLLDBBo
+oWLLLLLDBBo
+oWLLLLLDBBo
+.oWLLLLDBBo
+..oWLLDoBBo
+...oooooBBo
+.......oBBo
+.......oBBo
+.......oBBo
+.......oBBo
+.......oBBo
+.......oBBo
+.......oBBo
+.......oBBo
+.......oooo

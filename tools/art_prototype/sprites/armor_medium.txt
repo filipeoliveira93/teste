@@ -1,0 +1,11 @@
+# Armadura média: cota de malha com mangas
+key o black
+key M steel
+key m steel_dark
+
+layer chest z=10 at=8,16
+..ooMMMMMMMMoo..
+.oMmMmMmMmMmMmo.
+oMomMmMmMmMmMoMo
+oMoMmMmMmMmMmoMo
+...MmMmMmMmMm...

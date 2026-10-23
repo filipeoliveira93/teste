@@ -1,0 +1,11 @@
+# Armadura leve: colete de couro
+key o black
+key T tan
+key t brown
+
+layer chest z=10 at=9,16
+.ooTTT..TTToo.
+oTTTTToTTTTTTo
+.oTTTTTTTTTTo.
+.otTTTTTTTTto.
+.otttTTTTttto.

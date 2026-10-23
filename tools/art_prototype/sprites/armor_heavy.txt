@@ -1,0 +1,27 @@
+# Armadura pesada: placas + elmo
+key o black
+key W white
+key A steel_light
+key a steel
+key d steel_dark
+
+layer chest z=10 at=8,16
+oAAAoaAAAAaoAAAo
+oaaaoAAWWAAoaaao
+odaoaAAAAAAaoado
+odaoaAAAAAAaoado
+odaodaaaaaadoado
+odao........oado
+
+layer helm z=20 at=10,4
+....oooo....
+..ooAAAAoo..
+.oAAAWWAAAo.
+oaAAAWWAAAao
+oaAAAAAAAAao
+oaaaaaaaaaao
+odaaaaaaaado
+oda......ado
+oda......ado
+od........do
+.od......do.
