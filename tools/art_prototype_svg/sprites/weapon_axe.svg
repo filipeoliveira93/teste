@@ -1,0 +1,8 @@
+<g data-z="25">
+  <rect x="42" y="26" width="8" height="106" rx="3" fill="url(#l-wood)"/>
+  <path d="M42,38 C30,22 14,24 9,48 C14,72 30,74 42,58 Z" fill="url(#r-blade)"/>
+  <path d="M13,38 Q10,48 13,58" fill="none" stroke="@white" stroke-width="2.5"/>
+  <rect x="38" y="34" width="16" height="28" rx="4" fill="url(#l-mail)"/>
+  <circle cx="46" cy="41" r="2" fill="@steel_dark" stroke="none"/>
+  <circle cx="46" cy="55" r="2" fill="@steel_dark" stroke="none"/>
+</g>

@@ -1,0 +1,7 @@
+<g data-z="25">
+  <path d="M30,74 L30,156" fill="none" stroke="@sand" stroke-width="1.5"/>
+  <path d="M30,74 Q60,115 30,156" fill="none" stroke="@black" stroke-width="10"/>
+  <path d="M30,74 Q60,115 30,156" fill="none" stroke="@brown" stroke-width="5"/>
+  <path d="M33,80 Q52,108 46,118" fill="none" stroke="@tan" stroke-width="1.5"/>
+  <rect x="40" y="106" width="10" height="20" rx="3" fill="url(#l-belt)"/>
+</g>

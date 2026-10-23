@@ -1,0 +1,20 @@
+<!-- Armadura pesada: peitoral, ombreiras grandes, braçais e elmo com pluma -->
+<g data-z="10">
+  <path d="M57,75 Q80,69 103,75 L106,110 Q80,116 54,110 Z" fill="url(#r-plate)"/>
+  <path d="M80,74 L80,112" fill="none" stroke="@steel" stroke-width="2"/>
+  <path d="M60,96 Q80,101 100,96" fill="none" stroke="@steel" stroke-width="2"/>
+  <rect x="42" y="94" width="13" height="18" rx="4" transform="rotate(10 48 103)" fill="url(#l-plate)"/>
+  <rect x="105" y="94" width="13" height="18" rx="4" transform="rotate(-10 112 103)" fill="url(#l-plate)"/>
+  <path d="M38,88 Q38,70 56,70 Q70,70 70,82 Q60,92 38,88 Z" fill="url(#r-plate)"/>
+  <path d="M122,88 Q122,70 104,70 Q90,70 90,82 Q100,92 122,88 Z" fill="url(#r-plate)"/>
+  <path d="M42,84 Q55,86 66,80 M118,84 Q105,86 94,80" fill="none" stroke="@gold" stroke-width="2"/>
+  <rect x="52" y="105" width="56" height="9" rx="3" fill="url(#l-gold)"/>
+</g>
+<g data-z="20">
+  <path d="M82,14 Q100,0 112,10 Q98,6 88,18 Z" fill="url(#r-plume)"/>
+  <path d="M49,48 Q49,13 80,13 Q111,13 111,48 L111,74 L100,74 L100,48 L60,48 L60,74 L49,74 Z" fill="url(#r-plate)"/>
+  <rect x="47" y="40" width="66" height="9" rx="3" fill="url(#l-gold)"/>
+  <rect x="76" y="44" width="8" height="22" rx="2" fill="url(#l-plate)"/>
+  <circle cx="54" cy="60" r="1.6" fill="@steel" stroke="none"/>
+  <circle cx="106" cy="60" r="1.6" fill="@steel" stroke="none"/>
+</g>

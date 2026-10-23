@@ -1,0 +1,7 @@
+<g data-z="25">
+  <path d="M40,108 L52,108 L52,36 L46,24 L40,36 Z" fill="url(#l-blade)"/>
+  <path d="M46,32 L46,104" fill="none" stroke="@steel" stroke-width="1.5"/>
+  <rect x="31" y="105" width="30" height="7" rx="3" fill="url(#l-gold)"/>
+  <rect x="42" y="112" width="8" height="16" rx="2" fill="url(#l-wood)"/>
+  <circle cx="46" cy="131" r="5" fill="url(#r-gold)"/>
+</g>

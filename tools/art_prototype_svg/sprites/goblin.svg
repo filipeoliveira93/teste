@@ -1,0 +1,28 @@
+<!-- Inimigo base; variantes por troca de paleta em build.py -->
+<g data-z="0">
+  <!-- pernas, braços, corpo -->
+  <rect x="64" y="120" width="13" height="26" rx="6" fill="url(#l-gob)"/>
+  <rect x="83" y="120" width="13" height="26" rx="6" fill="url(#l-gob)"/>
+  <ellipse cx="66" cy="148" rx="11" ry="6" fill="url(#r-gob)"/>
+  <ellipse cx="94" cy="148" rx="11" ry="6" fill="url(#r-gob)"/>
+  <rect x="49" y="100" width="11" height="30" rx="5.5" transform="rotate(15 54 115)" fill="url(#l-gob)"/>
+  <rect x="100" y="100" width="11" height="30" rx="5.5" transform="rotate(-15 106 115)" fill="url(#l-gob)"/>
+  <circle cx="48" cy="131" r="7" fill="url(#r-gob)"/>
+  <circle cx="112" cy="131" r="7" fill="url(#r-gob)"/>
+  <ellipse cx="80" cy="113" rx="24" ry="19" fill="url(#r-gob)"/>
+  <path d="M60,118 L100,118 L96,138 L88,134 L80,140 L72,134 L64,138 Z" fill="url(#l-cloth)"/>
+  <!-- orelhas e cabeça -->
+  <path d="M54,68 L8,44 L22,74 L52,86 Z" fill="url(#r-gob)"/>
+  <path d="M106,68 L152,44 L138,74 L108,86 Z" fill="url(#r-gob)"/>
+  <path d="M50,72 L20,56 L28,72 Z M110,72 L140,56 L132,72 Z" fill="@green_dark" stroke="none"/>
+  <ellipse cx="80" cy="72" rx="33" ry="27" fill="url(#r-gob)"/>
+  <!-- rosto -->
+  <ellipse cx="66" cy="70" rx="8" ry="6.5" fill="@yellow"/>
+  <ellipse cx="94" cy="70" rx="8" ry="6.5" fill="@yellow"/>
+  <circle cx="68" cy="70" r="3" fill="@black" stroke="none"/>
+  <circle cx="92" cy="70" r="3" fill="@black" stroke="none"/>
+  <path d="M56,58 L74,64 M104,58 L86,64" fill="none" stroke="@black" stroke-width="3.5"/>
+  <path d="M78,77 Q80,81 82,77" fill="none" stroke="@green_dark" stroke-width="2"/>
+  <path d="M62,86 Q80,98 98,86 Q80,92 62,86 Z" fill="@black"/>
+  <path d="M68,88 L70,94 L73,89 Z M92,88 L90,94 L87,89 Z" fill="@white" stroke-width="1.5"/>
+</g>

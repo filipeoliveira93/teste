@@ -1,0 +1,10 @@
+<!-- Armadura média: cota de malha com mangas e gola acolchoada -->
+<g data-z="10">
+  <path d="M58,75 Q80,70 102,75 L107,108 Q80,112 53,108 Z" fill="url(#r-mail)"/>
+  <path d="M58,75 Q80,70 102,75 L107,108 Q80,112 53,108 Z" fill="url(#rings)" stroke="none"/>
+  <path d="M44,80 Q55,70 66,80 L62,100 L46,100 Z" fill="url(#r-mail)"/>
+  <path d="M44,80 Q55,70 66,80 L62,100 L46,100 Z" fill="url(#rings)" stroke="none"/>
+  <path d="M116,80 Q105,70 94,80 L98,100 L114,100 Z" fill="url(#r-mail)"/>
+  <path d="M116,80 Q105,70 94,80 L98,100 L114,100 Z" fill="url(#rings)" stroke="none"/>
+  <ellipse cx="80" cy="75" rx="15" ry="5" fill="url(#l-leather)"/>
+</g>

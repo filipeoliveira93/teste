@@ -1,0 +1,12 @@
+<!-- Armadura leve: colete de couro aberto, ombreiras e costuras -->
+<g data-z="10">
+  <path d="M58,76 L75,74 L80,108 L53,108 Q52,90 58,76 Z" fill="url(#r-leather)"/>
+  <path d="M102,76 L85,74 L80,108 L107,108 Q108,90 102,76 Z" fill="url(#r-leather)"/>
+  <path d="M60,84 L56,104 M100,84 L104,104" fill="none" stroke="@brown" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <ellipse cx="54" cy="80" rx="12" ry="8" fill="url(#r-leather)"/>
+  <ellipse cx="106" cy="80" rx="12" ry="8" fill="url(#r-leather)"/>
+  <circle cx="74" cy="88" r="2.2" fill="@gold" stroke-width="1.5"/>
+  <circle cx="86" cy="88" r="2.2" fill="@gold" stroke-width="1.5"/>
+  <circle cx="75" cy="98" r="2.2" fill="@gold" stroke-width="1.5"/>
+  <circle cx="85" cy="98" r="2.2" fill="@gold" stroke-width="1.5"/>
+</g>
