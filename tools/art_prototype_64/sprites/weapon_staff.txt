@@ -1,0 +1,9 @@
+ramp wood tan brown brown_dark
+ramp gem  white cyan blue blue_dark
+ramp gold yellow gold orange rust
+
+layer staff z=25
+capsule 18 12 18 59 1.9 wood pattern=grain
+rect 15.5 11 5 2.5 gold
+ellipse 18 7 4.2 4.6 gem
+dot 16 5 white

@@ -1,0 +1,30 @@
+# Inimigo base; variantes por troca de paleta em build.py
+ramp gob     green green_mid green_dark teal_dark
+ramp cloth   tan brown brown_dark
+ramp eye     yellow gold
+
+layer base z=0
+poly gob 21,29 4,20 9,27 20,35 group=earL
+poly gob 43,29 60,20 55,27 44,35 group=earR
+capsule 23 42 20 52 2.7 gob group=armL
+capsule 41 42 44 52 2.7 gob group=armR
+ellipse 20 53 2.8 2.8 gob group=armL
+ellipse 44 53 2.8 2.8 gob group=armR
+capsule 28 51 27 58 3 gob group=legL
+capsule 36 51 37 58 3 gob group=legR
+ellipse 26 60 3.8 2 gob group=legL
+ellipse 38 60 3.8 2 gob group=legR
+ellipse 32 46 9 7.5 gob
+poly cloth 23.5,49 40.5,49 38,57 32,55 26,57
+ellipse 32 30 13 10.5 gob
+ellipse 26 29.5 3 2.4 eye flat=0
+ellipse 38 29.5 3 2.4 eye flat=0
+box 26 29 2 2 black
+box 37 29 2 2 black
+line 23 26 28 27 teal_dark
+line 41 26 36 27 teal_dark
+box 27 35 10 2 black
+dot 28 35 white
+dot 35 35 white
+dot 28 36 white
+dot 35 36 white

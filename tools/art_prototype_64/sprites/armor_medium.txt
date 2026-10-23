@@ -1,0 +1,9 @@
+# Armadura média: cota de malha com mangas e gola
+ramp mail steel_light steel steel_dark navy
+ramp padding tan skin_mid brown
+
+layer chest z=10
+poly mail 22.5,30 41.5,30 43,43 21,43 pattern=mail
+capsule 21 32 20 38 3.9 mail pattern=mail group=sleeveL
+capsule 43 32 44 38 3.9 mail pattern=mail group=sleeveR
+ellipse 32 30.5 6 2.2 padding

@@ -1,0 +1,22 @@
+# Armadura pesada: placas, ombreiras grandes, manoplas e elmo
+ramp plate steel_light steel steel_dark navy
+ramp trim yellow gold orange rust
+
+layer chest z=10
+poly plate 23,30 41,30 42.5,44 21.5,44
+line 32 32 32 42 steel_dark
+dot 26 33 white
+dot 27 33 white
+dot 17 30 white
+capsule 19.5 37 18.5 44 2.9 plate
+capsule 44.5 37 45.5 44 2.9 plate
+ellipse 20 32.5 5.5 4.5 plate
+ellipse 44 32.5 5.5 4.5 plate
+rect 21 42 22 3 trim
+
+layer helm z=20
+ellipse 32 17 12.5 13 plate clip=16
+rect 19.5 15 25 3 trim
+rect 19.5 18 4.5 10 plate
+rect 40 18 4.5 10 plate
+rect 31 16 2 7 plate flat=2

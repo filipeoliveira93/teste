@@ -1,0 +1,45 @@
+# Corpo base. Camadas por z: corpo 0, armadura 10, elmo 20, arma 25, mão 30.
+# Rampas vão da cor iluminada para a sombra.
+ramp skin   peach skin_light skin_mid brown
+ramp hair   brown brown_dark black
+ramp tunic  steel_dark navy navy_dark
+ramp pants  tan brown brown_dark
+ramp boots  brown brown_dark black
+ramp belt   clay rust brown_dark
+
+layer base z=0
+# cabelo de trás, cabeça, franja
+ellipse 32 17 12.5 11 hair group=hair
+ellipse 32 18.5 10.5 10.5 skin soft=0.55
+ellipse 32 11 11 6.5 hair clip=12 group=fringe
+poly hair 21,14 21.5,9 32,8 42.5,9 43,14 41,18 38.5,14 35.5,17 32,13 28.5,17 25.5,14 23,18 group=fringe
+line 26 7 29 6 skin_mid
+dot 25 8 skin_mid
+# rosto
+box 26 19 2 3 black
+box 36 19 2 3 black
+dot 26 19 white
+dot 36 19 white
+line 30 25 33 25 skin_mid
+# pescoço e tronco
+rect 29 27 6 4 skin flat=2
+poly tunic 23,30 41,30 43,44 21,44 soft=0.7
+# braços: manga + pele
+capsule 21 32 20 37 3.6 tunic group=sleeveL
+capsule 43 32 44 37 3.6 tunic group=sleeveR
+capsule 20 37 18.5 44 2.6 skin
+capsule 44 37 45.5 44 2.6 skin
+ellipse 46 46 3 3 skin
+# cinto, calça, botas
+rect 21 42 22 3 belt
+poly pants 21.5,45 42.5,45 42,50 22,50 group=pants
+capsule 27.5 47 27.5 54 3.6 pants group=pants
+capsule 36.5 47 36.5 54 3.6 pants group=pants
+capsule 27.5 54 27.5 57 3.8 boots group=bootL
+ellipse 26.5 59 5 2.6 boots group=bootL
+capsule 36.5 54 36.5 57 3.8 boots group=bootR
+ellipse 37.5 59 5 2.6 boots group=bootR
+
+# mão que segura a arma, por cima do cabo
+layer hand z=30
+ellipse 18 46 3 3 skin

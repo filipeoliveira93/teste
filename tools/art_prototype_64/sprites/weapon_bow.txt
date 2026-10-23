@@ -1,0 +1,10 @@
+ramp wood tan brown brown_dark
+ramp grip clay rust brown_dark
+
+layer bow z=25
+line 12 30 12 62 sand
+capsule 12 30 14.5 36 1.6 wood group=bow
+capsule 14.5 36 17 42 1.8 wood group=bow
+capsule 17 42 17 50 2 wood group=bow
+capsule 17 50 14.5 56 1.8 wood group=bow
+capsule 14.5 56 12 62 1.6 wood group=bow

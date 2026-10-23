@@ -1,0 +1,10 @@
+ramp blade white steel_light steel steel_dark
+ramp gold  yellow gold orange rust
+ramp wood  tan brown brown_dark
+
+layer sword z=25
+poly blade 15.5,42 20.5,42 20.5,15 18,11 15.5,15
+line 18 14 18 40 white
+rect 11.5 41 13 3 gold
+rect 16.5 44 3 6 wood
+ellipse 18 51.5 2.3 2.3 gold

@@ -1,0 +1,12 @@
+# Armadura leve: colete de couro aberto + ombreiras
+ramp leather tan skin_mid brown brown_dark
+
+layer chest z=10
+poly leather 22.5,30 30,30 32,43 21.5,43 group=vest pattern=grain
+poly leather 34,30 41.5,30 42.5,43 32,43 group=vest pattern=grain
+ellipse 21.5 32 4.2 3.2 leather
+ellipse 42.5 32 4.2 3.2 leather
+line 24 35 24 41 brown_dark
+line 40 35 40 41 brown_dark
+dot 29 34 gold
+dot 35 34 gold

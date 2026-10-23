@@ -1,0 +1,9 @@
+ramp blade white steel_light steel steel_dark
+ramp wood  tan brown brown_dark
+
+layer axe z=25
+rect 16.5 13 3 40 wood pattern=grain
+poly blade 16.5,16 9,11 4.5,20 9,29 16.5,24
+line 6 15 5 20 white
+line 5 21 7 26 white
+rect 15.5 14.5 5 3 wood
