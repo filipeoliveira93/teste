@@ -1,0 +1,19 @@
+<!-- Espada longa de ferro escuro, lâmina com dentes e ferrugem -->
+<defs>
+  <clipPath id="blade"><path d="M43,96 L51,96 L51,26 L47,16 L43,26 Z"/></clipPath>
+</defs>
+<g data-z="25">
+  <path d="M43,96 L51,96 L51,26 L47,16 L43,26 Z" fill="url(#h-steel)"/>
+  <g clip-path="url(#blade)" stroke="none">
+    <rect x="46.2" y="24" width="1.6" height="70" fill="@iron_dark" opacity="0.7"/>
+    <ellipse cx="49" cy="70" rx="2.5" ry="4" fill="@rust" opacity="0.7"/>
+    <ellipse cx="44.5" cy="84" rx="2" ry="3" fill="@rust_light" opacity="0.6"/>
+    <ellipse cx="48" cy="44" rx="1.5" ry="2.5" fill="@rust" opacity="0.5"/>
+  </g>
+  <path d="M51,40 L49.6,42 L51,44 M43,58 L44.2,60 L43,62 M51,76 L50,77.5 L51,79" fill="@outline" stroke-width="0.8"/>
+  <path d="M33,96 Q40,100 47,96 Q54,100 61,96 L61,100 Q54,103 47,100 Q40,103 33,100 Z" fill="url(#v-iron)"/>
+  <path d="M33,98 L30,104 M61,98 L64,104" fill="none" stroke="@iron" stroke-width="2.2"/>
+  <rect x="44" y="100" width="6" height="15" rx="1.5" fill="url(#h-leather)"/>
+  <ellipse cx="47" cy="118" rx="4" ry="3.5" fill="url(#s-iron)"/>
+  <path d="M44,117 L50,117" fill="none" stroke="@iron_shine" stroke-width="0.6" opacity="0.7"/>
+</g>

@@ -1,0 +1,39 @@
+<!-- Corpo base (proporção heroica ~1:7). z: capa -5, corpo 0, armadura 10, elmo 20, arma 25, mão 30.
+     Lado direito = mesmo path espelhado com transform="matrix(-1 0 0 1 160 0)" -->
+<g data-z="-10">
+  <ellipse cx="80" cy="153" rx="30" ry="5" fill="@void" opacity="0.7" data-mat="flat"/>
+</g>
+<g data-z="0">
+  <!-- pernas e botas -->
+  <path d="M64,84 L79,86 L78,112 L77,145 L68,145 L66,112 Z" fill="@cloth" data-mat="cloth" data-vol="5"/>
+  <path d="M64,84 L79,86 L78,112 L77,145 L68,145 L66,112 Z" fill="@cloth" data-mat="cloth" data-vol="5" transform="matrix(-1 0 0 1 160 0)"/>
+  <path d="M66,128 L78,128 L78,149 Q79,155 73,155 L60,155 Q57,154 59,150 Q63,147 66,145 Z" fill="@leather" data-mat="leather" data-vol="4"/>
+  <path d="M66,128 L78,128 L78,149 Q79,155 73,155 L60,155 Q57,154 59,150 Q63,147 66,145 Z" fill="@leather" data-mat="leather" data-vol="4" transform="matrix(-1 0 0 1 160 0)"/>
+  <!-- braços -->
+  <path d="M58,44 Q66,42 66,52 L61,68 L52,67 Q53,52 58,44 Z" fill="@linen" data-mat="cloth" data-vol="4"/>
+  <path d="M58,44 Q66,42 66,52 L61,68 L52,67 Q53,52 58,44 Z" fill="@linen" data-mat="cloth" data-vol="4" transform="matrix(-1 0 0 1 160 0)"/>
+  <path d="M52,66 L61,67 L57,88 L49,87 Z" fill="@skin" data-mat="skin" data-vol="3.5"/>
+  <path d="M52,66 L61,67 L57,88 L49,87 Z" fill="@skin" data-mat="skin" data-vol="3.5" transform="matrix(-1 0 0 1 160 0)"/>
+  <ellipse cx="110" cy="93" rx="5" ry="6" fill="@skin" data-mat="skin" data-vol="3"/>
+  <!-- tronco -->
+  <path d="M75,30 L85,30 L86,40 L74,40 Z" fill="@skin" data-mat="skin" data-vol="3"/>
+  <path d="M60,40 Q80,35 100,40 Q103,56 97,72 L96,86 L64,86 L63,72 Q57,56 60,40 Z" fill="@linen" data-mat="cloth" data-vol="9"/>
+  <path d="M62,72 L98,72 L98,78 L62,78 Z" fill="@leather" data-mat="leather" data-vol="2"/>
+  <!-- cabeça -->
+  <path d="M72,20 Q72,11 80,11 Q88,11 88,20 L88,26 Q87,33 80,35 Q73,33 72,26 Z" fill="@skin" data-mat="skin" data-vol="5"/>
+  <g data-mat="flat">
+    <ellipse cx="76.5" cy="22.5" rx="2" ry="1.1" fill="@skin_dark" opacity="0.8"/>
+    <ellipse cx="83.5" cy="22.5" rx="2" ry="1.1" fill="@skin_dark" opacity="0.9"/>
+    <ellipse cx="76.6" cy="22.6" rx="0.9" ry="0.6" fill="@bone"/>
+    <ellipse cx="83.4" cy="22.6" rx="0.9" ry="0.6" fill="@bone"/>
+    <path d="M74,20.6 L78.5,21 M81.5,21 L86,20.6" stroke="@hair" stroke-width="0.9" fill="none"/>
+    <path d="M80,23 L79.2,27 L80.6,27.4" stroke="@skin_dark" stroke-width="0.6" fill="none"/>
+    <path d="M77.8,30 Q80,30.8 82.2,30" stroke="@skin_dark" stroke-width="0.7" fill="none"/>
+    <path d="M74,27 Q75,33 80,34.5 Q85,33 86,27 Q83,31.5 80,31.8 Q77,31.5 74,27 Z" fill="@hair" opacity="0.4"/>
+  </g>
+  <path d="M71,22 Q69,8 80,7.5 Q91,8 89,22 L87.5,16 L85,18 L83,13.5 L79.5,16.5 L76.5,13 L74,17.5 L72.5,15 Z" fill="@hair" data-mat="hair" data-vol="3"/>
+</g>
+<!-- mão que segura a arma -->
+<g data-z="30">
+  <ellipse cx="51" cy="92" rx="5" ry="6" fill="@skin" data-mat="skin" data-vol="3"/>
+</g>

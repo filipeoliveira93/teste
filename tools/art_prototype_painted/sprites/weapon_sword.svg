@@ -1,0 +1,12 @@
+<!-- Espada longa: lâmina com sulco central, guarda curva, cabo de couro -->
+<g data-z="25">
+  <path d="M49,85 L53,85 L53,30 L51,22 L49,30 Z" fill="@iron_light" data-mat="metal" data-vol="1.6"/>
+  <path d="M50.6,30 L51.4,30 L51.4,83 L50.6,83 Z" fill="@iron_dark" data-mat="metal" data-vol="0.6"/>
+  <path d="M42,84 Q46,87 51,85.5 Q56,87 60,84 L61,87 Q56,90 51,88.5 Q46,90 41,87 Z" fill="@iron" data-mat="metal" data-vol="1.5"/>
+  <rect x="49.3" y="88" width="3.4" height="11" rx="1" fill="@leather" data-mat="leather" data-vol="1.5"/>
+  <ellipse cx="51" cy="101" rx="2.6" ry="2.4" fill="@iron" data-mat="metal" data-vol="1.5"/>
+  <g data-mat="flat" opacity="0.5">
+    <ellipse cx="52" cy="60" rx="1" ry="2" fill="@rust"/>
+    <ellipse cx="50" cy="74" rx="0.8" ry="1.6" fill="@rust"/>
+  </g>
+</g>

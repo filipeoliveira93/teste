@@ -1,0 +1,66 @@
+<!-- Armadura pesada: placas enegrecidas, cota de malha, tabardo rasgado, capa e elmo fechado -->
+<g data-z="-5">
+  <path d="M60,38 Q80,33 100,38 L108,96 L112,142 L104,138 L98,146 L90,139 L81,148 L72,139 L63,146 L56,138 L48,142 L52,96 Z" fill="@cloth_dark" data-mat="cloth" data-vol="10"/>
+</g>
+<g data-z="10">
+  <!-- saia de malha -->
+  <path d="M62,78 L98,78 L101,104 Q80,108 59,104 Z" fill="@iron" data-mat="mail" data-vol="5"/>
+  <!-- grevas, joelheiras, botas de placa -->
+  <path d="M66,104 L78,104 L78,113 L67,113 Z" fill="@iron" data-mat="metal" data-vol="4"/>
+  <path d="M66,104 L78,104 L78,113 L67,113 Z" fill="@iron" data-mat="metal" data-vol="4" transform="matrix(-1 0 0 1 160 0)"/>
+  <path d="M66.5,118 L78,118 L77,145 L68,145 Z" fill="@iron" data-mat="metal" data-vol="4"/>
+  <path d="M66.5,118 L78,118 L77,145 L68,145 Z" fill="@iron" data-mat="metal" data-vol="4" transform="matrix(-1 0 0 1 160 0)"/>
+  <ellipse cx="72.5" cy="115" rx="6.5" ry="5.5" fill="@iron" data-mat="metal" data-vol="3.5"/>
+  <ellipse cx="72.5" cy="115" rx="6.5" ry="5.5" fill="@iron" data-mat="metal" data-vol="3.5" transform="matrix(-1 0 0 1 160 0)"/>
+  <path d="M65,143 L79,143 L79.5,150 Q80,155 74,155 L60,155 Q57,154 59,150 Q62,146 65,145 Z" fill="@iron" data-mat="metal" data-vol="3"/>
+  <path d="M65,143 L79,143 L79.5,150 Q80,155 74,155 L60,155 Q57,154 59,150 Q62,146 65,145 Z" fill="@iron" data-mat="metal" data-vol="3" transform="matrix(-1 0 0 1 160 0)"/>
+  <!-- tabardo -->
+  <path d="M71,74 L89,74 L91,112 L86,107 L82,114 L78,107 L74,113 L69,108 Z" fill="@blood" data-mat="cloth" data-vol="4"/>
+  <!-- peitoral e faldas -->
+  <path d="M61,40 Q80,34 99,40 Q102,55 97,68 Q90,75 80,75 Q70,75 63,68 Q58,55 61,40 Z" fill="@iron" data-mat="metal" data-vol="11"/>
+  <path d="M79.2,40 L80.8,40 L80.8,72 L79.2,72 Z" fill="@iron_light" data-mat="metal" data-vol="1"/>
+  <path d="M63,69 Q80,77 97,69 L98,75 Q80,83 62,75 Z" fill="@iron" data-mat="metal" data-vol="2.5"/>
+  <path d="M62,75 Q80,83 98,75 L99,81 Q80,89 61,81 Z" fill="@iron" data-mat="metal" data-vol="2.5"/>
+  <path d="M60,80 L72,84 L71,99 L61,97 Z" fill="@iron" data-mat="metal" data-vol="3"/>
+  <path d="M60,80 L72,84 L71,99 L61,97 Z" fill="@iron" data-mat="metal" data-vol="3" transform="matrix(-1 0 0 1 160 0)"/>
+  <!-- gorjal -->
+  <path d="M71,31 L89,31 L92,40 Q80,44 68,40 Z" fill="@iron" data-mat="metal" data-vol="3"/>
+  <!-- braços -->
+  <path d="M55,48 L65,49 L61,66 L52,65 Z" fill="@iron" data-mat="metal" data-vol="4"/>
+  <path d="M55,48 L65,49 L61,66 L52,65 Z" fill="@iron" data-mat="metal" data-vol="4" transform="matrix(-1 0 0 1 160 0)"/>
+  <path d="M51,70 L61,70 L58,87 L48.5,86 Z" fill="@iron" data-mat="metal" data-vol="4"/>
+  <path d="M51,70 L61,70 L58,87 L48.5,86 Z" fill="@iron" data-mat="metal" data-vol="4" transform="matrix(-1 0 0 1 160 0)"/>
+  <path d="M50,63 Q56,61 62,64 Q62,72 56,73 Q50,72 50,63 Z M51,66 L46,70 L51,70 Z" fill="@iron" data-mat="metal" data-vol="2.5"/>
+  <path d="M50,63 Q56,61 62,64 Q62,72 56,73 Q50,72 50,63 Z M51,66 L46,70 L51,70 Z" fill="@iron" data-mat="metal" data-vol="2.5" transform="matrix(-1 0 0 1 160 0)"/>
+  <ellipse cx="110" cy="92.5" rx="5.5" ry="6" fill="@iron" data-mat="metal" data-vol="3"/>
+  <!-- ombreiras em camadas -->
+  <path d="M47,55 Q44,38 57,34 Q69,33 71,43 Q63,51 47,55 Z" fill="@iron" data-mat="metal" data-vol="6"/>
+  <path d="M47,55 Q44,38 57,34 Q69,33 71,43 Q63,51 47,55 Z" fill="@iron" data-mat="metal" data-vol="6" transform="matrix(-1 0 0 1 160 0)"/>
+  <path d="M46.5,54 Q60,52 70,45 L70,49 Q61,57 47.5,59 Z" fill="@iron" data-mat="metal" data-vol="2"/>
+  <path d="M46.5,54 Q60,52 70,45 L70,49 Q61,57 47.5,59 Z" fill="@iron" data-mat="metal" data-vol="2" transform="matrix(-1 0 0 1 160 0)"/>
+  <path d="M52,36 L48,29 L56,34 Z" fill="@iron" data-mat="metal" data-vol="1.5"/>
+  <path d="M52,36 L48,29 L56,34 Z" fill="@iron" data-mat="metal" data-vol="1.5" transform="matrix(-1 0 0 1 160 0)"/>
+  <!-- cinto -->
+  <path d="M63,72.5 L97,72.5 L97.5,76.5 L62.5,76.5 Z" fill="@leather" data-mat="leather" data-vol="1.5"/>
+  <rect x="77.5" y="71.5" width="5" height="6" rx="0.8" fill="@brass" data-mat="metal" data-vol="1.2"/>
+  <!-- ferrugem e sujeira -->
+  <g data-mat="flat" opacity="0.35">
+    <ellipse cx="70" cy="64" rx="4" ry="2.5" fill="@rust"/>
+    <ellipse cx="93" cy="58" rx="2.5" ry="3.5" fill="@rust"/>
+    <ellipse cx="73" cy="138" rx="3" ry="4" fill="@rust"/>
+    <ellipse cx="88" cy="128" rx="2" ry="3" fill="@rust"/>
+  </g>
+</g>
+<g data-z="20">
+  <!-- elmo fechado com fenda -->
+  <path d="M70.5,22 Q70,7.5 80,7 Q90,7.5 89.5,22 L89.5,30 Q86,35 80,35.5 Q74,35 70.5,30 Z" fill="@iron" data-mat="metal" data-vol="6"/>
+  <path d="M79.3,7.5 L80.7,7.5 L80.7,35 L79.3,35 Z" fill="@iron" data-mat="metal" data-vol="1"/>
+  <g data-mat="flat">
+    <path d="M72.5,20.5 L87.5,20.5 L87,22.5 L73,22.5 Z" fill="@void"/>
+    <circle cx="84" cy="27" r="0.5" fill="@void"/><circle cx="85.6" cy="27" r="0.5" fill="@void"/>
+    <circle cx="84" cy="29" r="0.5" fill="@void"/><circle cx="85.6" cy="29" r="0.5" fill="@void"/>
+  </g>
+</g>
+<g data-z="30">
+  <ellipse cx="51" cy="92" rx="5.5" ry="6" fill="@iron" data-mat="metal" data-vol="3"/>
+</g>
